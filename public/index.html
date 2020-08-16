@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en" class="h-100">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="js/vue.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-vue/2.16.0/bootstrap-vue.min.js" integrity="sha512-rhZT90kcNqaD5a7Lf9sCMFumuas9eQqVv8L2JcY3GZrtI3tPF5etnywtl3wkw+3JYPHM8jTl4b4Uievd++RMew==" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="main.css">
+    <title>Document</title>
+</head>
+
+<body class="h-100">
+
+    <main id="app" @click="increment" class="h-100">
+        <b-container class="position-absolute">
+            <b-row>
+                <b-col>2 of 3</b-col>
+                <b-col>3 of 3</b-col>
+            </b-row>
+        </b-container>
+        <div class="d-flex h-100">
+            <img v-for="img,index in urlList" :src="img.url" :class="
+    ['h-100',img.classes]" :key="index">
+
+            </img>
+        </div>
+    </main>
+
+
+
+</body>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data() {
+            return {
+                urlList: [{
+                    url: 'img/ECKHAUS_LATTA.jpg',
+                    classes: ['fullBleed']
+                }, {
+                    url: 'img/BUFFALO_ZINE.jpg',
+                    classes: ['fullBleed']
+                }, {
+                    url: 'img/10-MEN-2.jpg',
+                    classes: ['tile']
+                }, {
+                    url: 'img/CHARLES-JEFFREY-FW19.jpg',
+                    classes: ['fullBleed']
+                }, {
+                    url: 'img/BUFFALO-ZINE-2.jpg',
+                    classes: ['fullBleed']
+                }, {
+                    url: 'img/LORDELE.jpg',
+                    classes: ['tile']
+                }, {
+                    url: 'img/RICO.jpg',
+                    classes: ['fullBleed']
+                }, {
+                    url: 'img/VAQUERA.jpg',
+                    classes: ['tile']
+                }, {
+                    url: 'img/NUMERO.jpg',
+                    classes: ['tile']
+                }],
+                black: '#000',
+                imageNum: -1
+            }
+        },
+        computed: {
+            max() {
+                return this.urlList.length - 1;
+            }
+        },
+        methods: {
+            isHidden(i) {
+                console.log(i == this.imageNum)
+
+                return i != this.imageNum ? 0 : 1
+
+            },
+            increment() {
+                if (this.imageNum >= this.max) {
+                    this.imageNum = 0
+                } else {
+                    this.imageNum++;
+                }
+
+
+            },
+            handleScroll(event) {
+
+            }
+
+        },
+        mounted() {
+            function transformScroll(event) {
+                if (!event.deltaY) {
+                    return;
+                }
+
+                event.currentTarget.scrollLeft += event.deltaY + event.deltaX;
+                event.preventDefault();
+            }
+
+            var element = document.scrollingElement || document.documentElement;
+            element.addEventListener('wheel', transformScroll);
+        }
+    })
+</script>
+
+</html>

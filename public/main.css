@@ -1,0 +1,18 @@
+.fullBleed {
+    background-position: 50% 50%;
+    background-size: auto 100%;
+    background-repeat: no-repeat !important;
+}
+
+.tile {
+    background-size: auto 50%;
+}
+
+body {
+    background-color: #2D2926;
+    overflow-y: hidden;
+}
+
+html {
+    overflow-y: hidden;
+}
