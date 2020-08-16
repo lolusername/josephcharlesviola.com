@@ -22,7 +22,7 @@
                 <b-col>3 of 3</b-col>
             </b-row>
         </b-container>
-        <div class="d-flex h-100">
+        <div class="d-flex h-100 " id="fit">
             <img v-for="img,index in urlList" :src="img.url" :class="
     ['h-100',img.classes]" :key="index">
 
@@ -39,13 +39,13 @@
         data() {
             return {
                 urlList: [{
+                    url: 'img/10-MEN-2.jpg',
+                    classes: ['fullBleed']
+                }, {
                     url: 'img/ECKHAUS_LATTA.jpg',
                     classes: ['fullBleed']
                 }, {
                     url: 'img/BUFFALO_ZINE.jpg',
-                    classes: ['fullBleed']
-                }, {
-                    url: 'img/10-MEN-2.jpg',
                     classes: ['tile']
                 }, {
                     url: 'img/CHARLES-JEFFREY-FW19.jpg',
@@ -88,25 +88,21 @@
                 } else {
                     this.imageNum++;
                 }
-
-
-            },
-            handleScroll(event) {
-
             }
 
         },
         mounted() {
             function transformScroll(event) {
                 if (!event.deltaY) {
+
                     return;
                 }
 
                 event.currentTarget.scrollLeft += event.deltaY + event.deltaX;
-                event.preventDefault();
+                //event.preventDefault();
             }
 
-            var element = document.scrollingElement || document.documentElement;
+            var element = document.scrollingElement || document.body;
             element.addEventListener('wheel', transformScroll);
         }
     })

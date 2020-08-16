@@ -10,9 +10,19 @@
 
 body {
     background-color: #2D2926;
-    overflow-y: hidden;
 }
 
-html {
-    overflow-y: hidden;
+#fit {
+    width: fit-content;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow: auto;
+}
+
+html,
+body {
+    overflow: hidden;
 }
