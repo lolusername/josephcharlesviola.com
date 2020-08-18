@@ -5,26 +5,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+
     <script src="js/vue.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-vue/2.16.0/bootstrap-vue.min.js" integrity="sha512-rhZT90kcNqaD5a7Lf9sCMFumuas9eQqVv8L2JcY3GZrtI3tPF5etnywtl3wkw+3JYPHM8jTl4b4Uievd++RMew==" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="main.css">
-    <title>Document</title>
+    <title>JCV • CASTING</title>
 </head>
 
 <body class="h-100">
 
     <main id="app" @click="increment" class="h-100">
-        <b-container class="position-absolute">
-            <b-row>
-                <b-col>2 of 3</b-col>
-                <b-col>3 of 3</b-col>
-            </b-row>
-        </b-container>
+
         <div class="d-flex h-100 " id="fit">
+            <b-container fluid class="position-fixed menu mx-auto">
+                <img src="img/logo.jpg" class="logo my-md-3 float-right" alt="Joseph Charles Viola Casting">
+            </b-container>
             <img v-for="img,index in urlList" :src="img.url" :class="
-    ['h-100',img.classes]" :key="index">
+            ['shot']" :key="index">
 
             </img>
         </div>
@@ -33,6 +32,7 @@
 
 
 </body>
+
 <script>
     var app = new Vue({
         el: '#app',
@@ -67,7 +67,14 @@
                     classes: ['tile']
                 }],
                 black: '#000',
-                imageNum: -1
+                counter: 0,
+                observer: new IntersectionObserver((e, o) => {
+                    e.forEach(e => {
+                        if (e.isIntersecting) {
+                            console.log(e)
+                        } else console.log(e.isIntersecting)
+                    })
+                }, {})
             }
         },
         computed: {
@@ -76,22 +83,27 @@
             }
         },
         methods: {
-            isHidden(i) {
-                console.log(i == this.imageNum)
-
-                return i != this.imageNum ? 0 : 1
-
-            },
             increment() {
                 if (this.imageNum >= this.max) {
                     this.imageNum = 0
                 } else {
                     this.imageNum++;
                 }
+            },
+            handleScroll() {
+                if (this.counter < 1) {
+                    this.counter++
+                        this.observer.observe(document.getElementsByClassName('shot')[this.max - 2])
+                }
+
             }
 
         },
         mounted() {
+            if (history.scrollRestoration) {
+                history.scrollRestoration = 'manual';
+            }
+
             function transformScroll(event) {
                 if (!event.deltaY) {
 
@@ -99,11 +111,16 @@
                 }
 
                 event.currentTarget.scrollLeft += event.deltaY + event.deltaX;
-                //event.preventDefault();
             }
 
             var element = document.scrollingElement || document.body;
             element.addEventListener('wheel', transformScroll);
+
+            document.addEventListener('scroll', this.handleScroll);
+
+
+
+
         }
     })
 </script>
