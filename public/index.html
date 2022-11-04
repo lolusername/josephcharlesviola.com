@@ -1,247 +1,31 @@
 <!DOCTYPE html>
-<html lang="en" class="h-100">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-
-    <script src="js/vue.js"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-vue/2.16.0/bootstrap-vue.min.js" integrity="sha512-rhZT90kcNqaD5a7Lf9sCMFumuas9eQqVv8L2JcY3GZrtI3tPF5etnywtl3wkw+3JYPHM8jTl4b4Uievd++RMew==" crossorigin="anonymous"></script>
-    <script src="https://unpkg.com/vue-lazyload@1.3.3/vue-lazyload.js"></script>
-    <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="/android-icon-192x192.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/manifest.json">
-    <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
-    <meta name="theme-color" content="#ffffff">
-
-    <link rel="stylesheet" href="main.css">
-    <title>JOSEPH CHARLES VIOLA</title>
-</head>
-
-<body class="h-100">
-
-    <main id="app" @click="increment" class="h-100">
-
-        <div class="d-flex h-100 " id="fit">
-            <b-container fluid class="position-fixed menu mx-auto">
-                <img src="img/logo.jpg" id="logo-img" class="logo my-md-3 float-left" alt="Joseph Charles Viola Casting">
-
-            </b-container>
-            <img v-for="img,index in urlList" v-lazy="img.url" :class="
-            ['shot']" :key="index">
-
-            </img>
-            <b-container fluid class="position-fixed menu menu-links mx-auto d-flex justify-content-md-end">
-                <b-button variant="outline-dark" id="about" class="mr-2" href="#">About</b-button>
-                <b-button variant="outline-dark" target="_blank" class="mr-2" href="#" id="email">Email</b-button>
-                <b-button variant="outline-dark" target="_blank" class="mr-2" href="https://models.com/people/joseph-charles-viola/">Models Dot</b-button>
-                <b-button variant="outline-dark" target="_blank" class="mr-2" href="https://www.instagram.com/josephcharlesviola/">Instagram</b-button>
-            </b-container>
-            <b-popover target="about" title="MANHATTAN-BORN, JERSEY-RAISED QUEER MAYHEM." triggers="hover focus " placement="left">
-                JOSEPH CHARLES VIOLA IS A MULTIFACETED CREATIVE FROM NORTHERN NEW JERSEY. THEIR PRIMARY FOCUS IS ON STYLING, CASTING AND MANAGEMENT, HOWEVER THEY ALSO HOLD AMPLE EXPERIENCE IN PHOTOGRAPHY, PRODUCTION, AND PR, AMONG OTHER THINGS. THEY USE THEIR POWER
-                AND SPACE TO BRING FORTH A *GENUINELY* NEW PERSPECTIVE OF BEAUTY AND TALENT, AND THE ETHICS BEYOND THE SURFACE OF REPRESENTATION, TO ENSURE ACTIVE, PERSISTENT AND LASTING CHANGE IN THE INDUSTRY.
-            </b-popover>
-            <b-popover target="email" title="josephcviola@gmail.com" triggers="hover focus click" placement="top">
-
-            </b-popover>
-        </div>
-    </main>
-
-
-
-</body>
-
-<script>
-    Vue.use(VueLazyload, {
-        // set observer to true
-        observer: true,
-
-        // optional
-        observerOptions: {
-            threshold: 0.0001
-        }
-    })
-
-    var app = new Vue({
-        el: '#app',
-        data() {
-            return {
-                urlList: [{
-                    url: 'img/4-GREGORY-HALPERN.jpg',
-                    classes: []
-                }, {
-                    url: 'img/1-JAI-ODELL.jpg',
-                    classes: []
-                }, {
-                    url: 'img/2-BUFFALO-ZINE-COVER.jpg',
-                    classes: []
-                }, {
-                    url: 'img/3-SANDY-LIANG.jpg',
-                    classes: []
-                }, {
-                    url: 'img/5-CHARLES-JEFFREY-FW19.jpg',
-                    classes: []
-                }, {
-                    url: 'img/5-KEVIN-BUITRAGO.jpg',
-                    classes: []
-                }, {
-                    url: 'img/6-SLAVA-MOGUTIN.jpg',
-                    classes: []
-                }, {
-                    url: 'img/7-HAUS-LABS.jpg',
-                    classes: []
-                }, {
-                    url: "img/8-HARPER'S-BAZAAR-BALENCIAGA.jpg",
-                    classes: []
-                }, {
-                    url: 'img/9-OLIVER-HADLEE-PEARCH.jpg',
-                    classes: []
-                }, {
-                    url: 'img/10-GREGORY-HALPERN-MILES.jpg',
-                    classes: []
-                }, {
-                    url: 'img/11-I-D-TIM-WALKER.jpg',
-                    classes: []
-                }, {
-                    url: 'img/12-JONAH-HILL.jpg',
-                    classes: []
-                }, {
-                    url: 'img/13-KIM-PETRAS.jpg',
-                    classes: []
-                }, {
-                    url: 'img/14-NUMERO-2.jpg',
-                    classes: []
-                }, {
-                    url: 'img/15-RANDOM-IDENTITIES.jpg',
-                    classes: []
-                }, {
-                    url: 'img/16-VOGUE-ITALIA-ION.jpg',
-                    classes: []
-                }, {
-                    url: 'img/17-INTERVIEW-MAG-100-GECS.jpg',
-                    classes: []
-                }, {
-                    url: 'img/18-ANNABELLE.jpg',
-                    classes: []
-                }, {
-                    url: 'img/19-TEN-MEN-2.jpg',
-                    classes: []
-                }, {
-                    url: 'img/20-TEN-MEN.jpg',
-                    classes: []
-                }, {
-                    url: 'img/21-ECKHAUS-LATTA.jpg',
-                    classes: []
-                }, {
-                    url: 'img/22-BUFFALO-ZINE.jpg',
-                    classes: []
-                }, {
-                    url: 'img/23-ODD92.jpg',
-                    classes: []
-                }, {
-                    url: 'img/24-PHOSPHENES-2.jpg',
-                    classes: []
-                }, {
-                    url: 'img/25-PALM-ANGELS.jpg',
-                    classes: []
-                }, {
-                    url: 'img/26-BUFFALO-ZINE-2.jpg',
-                    classes: []
-                }, {
-                    url: 'img/27-NUMERO.jpg',
-                    classes: []
-                }, {
-                    url: 'img/28-SHAWN.jpg',
-                    classes: []
-                }, {
-                    url: 'img/29-PHOSPHENES.jpg',
-                    classes: []
-                }, {
-                    url: 'img/30-NIHL.jpg',
-                    classes: []
-                }, {
-                    url: 'img/31-VAQUERA.jpg',
-                    classes: []
-                }, {
-                    url: 'img/32-VOGUE-ITALIA-DOLLS.jpg',
-                    classes: []
-                }, {
-                    url: 'img/WEBSITE_CV.jpg',
-                    classes: []
-                }],
-                black: '#000',
-                counter: 0,
-                observer: new IntersectionObserver((e, o) => {
-                    e.forEach(e => {
-                        if (e.isIntersecting) {
-                            console.log(e)
-                        } else console.log(e.isIntersecting)
-                    })
-                }, {})
-            }
-        },
-        computed: {
-            max() {
-                return this.urlList.length - 1;
-            }
-        },
-        methods: {
-            increment() {
-                if (this.imageNum >= this.max) {
-                    this.imageNum = 0
-                } else {
-                    this.imageNum++;
-                }
-            },
-            scrollO() {
-                if (this.counter < 1) {
-                    this.counter++
-                        this.observer.observe(document.getElementsByClassName('shot')[this.max - 2])
-                }
-
-            },
-            preventScrollPosition() { // prevents reverting to past scroll position 
-                if (history.scrollRestoration) {
-                    history.scrollRestoration = 'manual';
-                }
-            }
-
-        },
-        mounted() {
-            this.preventScrollPosition()
-
-            function transformScroll(event) {
-                if (!event.deltaY) {
-
-                    return;
-                }
-                event.currentTarget.scrollLeft += event.deltaY + event.deltaX;
-            }
-
-            var element = document.scrollingElement || document.body;
-            element.addEventListener('wheel', transformScroll);
-
-            document.addEventListener('scroll', this.scrollObserver);
-
-
-
-
-        }
-    })
-</script>
-
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com/"></script>
+  </head>
+  <body
+    class="flex justify-center min-h-screen items-center flex-col bg-gradient-to-r from-indigo-50 via-stone-200 to-slate-50 gap-6 group"
+  >
+    <img class="md:w-1/4 peer" src="./img/logo.png" alt="" />
+    <h1 class="font-mono text-3xl cursor-wait peer-invalid:text-red-500">
+      BRB!
+    </h1>
+  </body>
 </html>
+<style>
+  @keyframes blur {
+    from {
+      filter: blur(1.5rem);
+    }
+    to {
+      filter: blur(0);
+    }
+  }
+  body {
+    animation: blur 2s;
+  }
+</style>
